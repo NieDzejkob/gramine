@@ -216,7 +216,8 @@ int ra_tls_verify_callback(void* data, mbedtls_x509_crt* crt, int depth, uint32_
 
     /* below function verifies `isvEnclaveQuoteStatus` returned in the IAS attestation report; it
      * fails if the SGX quote is invalid or if the EPID group/private key/signature is revoked (see
-     * www.intel.com/content/dam/develop/public/us/en/documents/sgx-attestation-api-spec.pdf) */
+     * https://www.intel.com/content/dam/develop/public/us/en/documents/sgx-attestation-api-spec.pdf
+     * for details) */
     ret = verify_ias_report_extract_quote((uint8_t*)report_data, report_data_size,
                                           (uint8_t*)sig_data, sig_data_size,
                                           allow_outdated_tcb, nonce,
